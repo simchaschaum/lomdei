@@ -1,0 +1,78 @@
+/* NAVBAR */
+  nav {
+    box-shadow: 0 0 7.5px var(--clr-dark);
+    z-index: 100;
+  }
+  .navbar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 70px;
+    transition: height 0.4s ease-in-out;
+  }
+  #nav-container{
+    max-width: 100%;
+  }
+  .navbar-collapse{
+    width: 100%;
+  }
+  .navbar-nav{
+    width: 100%;
+    justify-content: space-between;
+  }
+  .navbar-light{
+    font-size: 1.10em;
+  }
+  .navbar-brand{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin-right: 5%;
+  }
+  #navbar-logo{
+    width: 100%;
+    transition: width 0.4s ease-in-out;
+  }
+  #navbar-ul{
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nav-item:last-of-type{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+  }
+  .nav-link{
+    color: var(--clr-dark) !important;
+    font-size: 1.05em;
+    transition: font-size 0.4s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+  }
+  .dropdown-item{
+    text-decoration: none;
+  }
+
+  .nav-link:hover{
+    color: white !important;
+    background-color: var(--clr-dark);
+    box-shadow: 0 0 5px var(--clr-dark);
+  }
+  #login{
+    color: white !important;
+    background-color: var(--clr-dark);
+  }
+  /* for shrinking navbar on scroll */
+  .nav-shrink{
+    height: 55px;
+  }
+  .nav-shrink #navbar-logo{
+    width: 75%;
+  }
+  .nav-shrink .nav-link{
+    font-size: 1em;
+  }
+
+
