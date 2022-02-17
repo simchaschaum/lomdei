@@ -1,5 +1,7 @@
-import TopNavbar from "../navbar/Navbar";
+import TopNavbar from "../topNavbar/TopNavbar";
 import Footer from "../footer/Footer";
+import TuM from "./pdfs/Torah_Umesorah_Letter.pdf";
+import newsletter1 from "./lomdei/newsletters/newsletter1.pdf";
 
 // images:
 import BPL_in_action from "../pics/homepage/BPL in action.jpg";
@@ -17,6 +19,7 @@ import Newsletter_1 from "../pics/homepage/Newsletter 1.PNG";
 import CoT_Flier from "../pics/homepage/CoT Flier.jpg";
 import Carousel from 'react-bootstrap/Carousel';
 
+
 const Home = ()=>{
     return(
         <>
@@ -29,7 +32,7 @@ const Home = ()=>{
     <Carousel interval={7500}>
         <Carousel.Item>
             <img className="d-block w-100" src={BPL_in_action} alt="BPL in action in a Lomdei trained classroom" />
-            <a className="carousel-link" href="./">
+            <a className="carousel-link" href="./bpl/advantage">
                 <h2>
                     <strong>
                         The Lomdei Advantage
@@ -43,7 +46,7 @@ const Home = ()=>{
         </Carousel.Item>
         <Carousel.Item>
             <img className="d-block w-100" src={IMG_0597} alt="Teacher supports students in small group"/>
-            <a className="carousel-link" href="./">
+            <a className="carousel-link" href="./bpl/pd-program">
                 <h2>
                     <strong>
                         Comprehensive Support
@@ -56,7 +59,7 @@ const Home = ()=>{
         </Carousel.Item>
         <Carousel.Item>
             <img className="d-block w-100" src={IMG_0606} alt="Children learn with the Lomdei Learning Platform" />
-            <a className="carousel-link" href="./">
+            <a className="carousel-link" href="./platform/about-platform">
                 <h2>
                     <strong>
                         The Lomdei Learning Platform
@@ -69,7 +72,7 @@ const Home = ()=>{
         </Carousel.Item>
         <Carousel.Item>
             <img className="d-block w-100" src={IMG_0594} alt="BPL in action in a classroom" />
-            <a className="carousel-link" href="./">
+            <a className="carousel-link" href="./bpl/advantage">
                 <h2>
                     <strong>
                        The Lomdei BPL Program
@@ -90,10 +93,10 @@ const Home = ()=>{
             Lomdei is leading the way, providing custom training, coaching, and support for our BPL Program, along with our premier, skill-based Torah learning platform - to empower each rebbe and morah in creating the most dynamic, personalized and educationally sound experience for students.
         </h3>
         <h2><strong>להגדיל תורה ולהאדירה</strong></h2> 
-        <a className="link-dark" href="./pages/lomdei/schools.html">
+        <a className="link-dark" href="./lomdei/schools">
             <p>See a list of schools who have joined the movement and are part of this growing community</p>
         </a>
-        <a className="link-dark" href="./pages/lomdei/contact.html">
+        <a className="link-dark" href="./lomdei/contact">
             <p>Contact us to join, learn more, or to be in touch with schools who benefit from Lomdei's services</p>
         </a>
     </section>
@@ -106,10 +109,10 @@ const Home = ()=>{
                         <h4>
                             The Premier Torah Learning Platform in Jewish Day Schools equipped with a library of skill building Limudei Kodesh content.
                             <br/>
-                            <a className="link link-dark" target="_blank" href="./Torah_Umesorah_Letter.pdf">Endorsed by Torah Umesorah</a>
+                            <a className="link link-dark" rel="noreferrer" target="_blank" href={TuM}>Endorsed by Torah Umesorah</a>
                         </h4>
                     </div>
-                    <a href="./pages/platform/about-platform.html" className="link-btn">Learn More</a>
+                    <a href="./platform/about-platform" className="link-btn">Learn More</a>
                 </div>
                 <div className="white-fade-cover"></div>
                 <img src={lomdei_pic_1} alt="Closeup of Lomdei Learning Platform screen"/>
@@ -122,7 +125,7 @@ const Home = ()=>{
                             The leading professional development service in Blended and Personalized Learning geared for a  Torah environment and the Limudei Kodesh class.
                         </h4>
                     </div>
-                    <a href="./pages/BPL/about-BPL.html" className="link-btn">Learn More</a>
+                    <a href="./bpl/advantage" className="link-btn">Learn More</a>
                 </div>
                 <div className="white-fade-cover"></div>
                 <img src={group_work} alt="Students learning collaboratively in a small group"/>
@@ -163,19 +166,19 @@ const Home = ()=>{
     <section className="events">
         <h1>The Latest at Lomdei</h1>
         <div className="events-inner">
-            <a href="./pics/homepage/Newsletter HTML.html" target="_blank">
+            <a href={newsletter1} target="_blank" rel="noreferrer">
                 <div className="events-inner-background">
                     <img className="events-img" src={Newsletter_1} alt="Lomdei's Newsletter 1"/>
                     <p className="events-txt">Lomdei's Latest Newsletter</p>
                 </div>
             </a>
-            <a href="https://www.linkedin.com/posts/jeremy-hartstein-5b56878_jewisheducation-blendedlearning-personalizedlearning-activity-6881287034078543872-zlf8" target="_blank">
+            <a href="https://www.linkedin.com/posts/jeremy-hartstein-5b56878_jewisheducation-blendedlearning-personalizedlearning-activity-6881287034078543872-zlf8" target="_blank" rel="noreferrer">
                 <div className="events-inner-background">
                     <img className="events-img" src="https://www.torahumesorah.org/images/db/6218-School-Culture-Ad2-01-01-01.png" alt="Torah Umesorah Conference Flier"/>
                     <p className="events-txt">Lomdei at the Torah Umesorah Conference</p>
                 </div>
             </a>
-            <a href="./pics/homepage/CoT Flier.jpg" target="_blank">
+            <a href={CoT_Flier} target="_blank" rel="noreferrer">
                 <div className="events-inner-background">
                     <img className="events-img" src={CoT_Flier} alt="Community of Teachers Flier"/>
                     <p className="events-txt">Lomdei Community of Teachers</p>

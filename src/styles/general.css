@@ -67,6 +67,10 @@ p{
   background-color: var(--clr-btnHov);
   color: var(--clr-white)
 }
+/* Dropdown  */
+.dropdown-dark{
+  background-color: var(--clr-dark) !important;
+}
 .mini{
   padding: 5px 10px;
   font-size: 16px;
@@ -75,6 +79,9 @@ p{
 a{
   text-decoration: underline;
   color: var(--clr-dark)
+}
+a.button{
+  color: var(--clr-white) !important
 }
 .link{
     cursor: pointer;
@@ -86,6 +93,13 @@ a{
 .link-dark:hover{
     color: var(--clr-dark);
     text-decoration: none;
+}
+.link-light{
+  color: var(--clr-white);
+}
+.link-light:hover{
+  color: var(--clr-white);
+  text-decoration: none;
 }
 /* Events */
 .events{

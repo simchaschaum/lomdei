@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
+import AboutLomdei from './pages/lomdei/about-lomdei';
+import Contact from "./pages/lomdei/Contact";
+import Gallery from "./pages/lomdei/Gallery";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -11,9 +14,9 @@ function App() {
   return (
   <Routes>
     <Route path="/" element={<Home/>}/>
-    <Route path="/lomdei/about-lomdei" element={<Home/>}/>
-    <Route path="/lomdei/contact" element={<Home/>}/>
-    <Route path="/lomdei/gallery" element={<Home/>}/>
+    <Route path="/lomdei/about-lomdei" element={<AboutLomdei/>}/>
+    <Route path="/lomdei/contact" element={<Contact/>}/>
+    <Route path="/lomdei/gallery" element={<Gallery/>}/>
     <Route path="/lomdei/grants" element={<Home/>}/>
     <Route path="/lomdei/news" element={<Home/>}/>
     <Route path="/lomdei/team" element={<Home/>}/>
