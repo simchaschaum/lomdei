@@ -1,7 +1,26 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
+import { db } from "../../firebase/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 const Team = () => {
+
+  const [contentArr, setContentArr] = useState([]);
+
+  const getData = async () => {
+    const docRef = doc(db,"website-info","lomdei-team");
+    const snapshot = await getDoc(docRef);
+    if(snapshot.exists){
+      setContentArr([...snapshot.data().content]);
+    } else {
+      console.log("Sorry! No data available.");
+    }
+  }
+
+  useEffect(()=>{getData()},[]);
+  useEffect(()=>console.log(contentArr),[contentArr])
+
 
     return(<div>
         <div className="pageContainer">
@@ -11,7 +30,7 @@ const Team = () => {
                     Our Team
                 </h2>
             </section>
-            <section>
+            <section id="team">
             <div className="teamContainer">
                 <div className="teamCard">
                     <a data-bs-toggle="modal" data-bs-target="#bioKestenbaum">
