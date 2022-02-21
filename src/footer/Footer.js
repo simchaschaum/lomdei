@@ -9,7 +9,7 @@ const Footer = () => {
         <div id="footer">
             <div id="footer-left">
                 <div>
-                    <a href="https://www.lomdei.com/index.html">
+                    <a href="/">
                         <img id="footer-logo" src={logo} alt="Lomdei Logo"/>
                     </a>
                     <a href="https://www.linkedin.com/company/lomdei">

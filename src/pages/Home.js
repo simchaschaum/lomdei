@@ -1,7 +1,7 @@
 import TopNavbar from "../topNavbar/TopNavbar";
 import Footer from "../footer/Footer";
 import TuM from "./pdfs/Torah_Umesorah_Letter.pdf";
-import newsletter1 from "./lomdei/newsletters/newsletter1.pdf";
+import NewsItems from "./lomdei/NewsItems";
 
 // images:
 import BPL_in_action from "../pics/homepage/BPL in action.jpg";
@@ -15,10 +15,7 @@ import experts from "../pics/homepage/experts.jpg";
 import LCoT_Dec_21_6 from "../pics/homepage/LCoT Dec 21 (6).PNG";
 import IMG_0615 from "../pics/homepage/IMG_0615.jpg";
 import IMG_20211223 from "../pics/homepage/IMG-20211223-WA0001.jpg";
-import Newsletter_1 from "../pics/homepage/Newsletter 1.PNG";
-import CoT_Flier from "../pics/homepage/CoT Flier.jpg";
 import Carousel from 'react-bootstrap/Carousel';
-
 
 const Home = ()=>{
     return(
@@ -165,26 +162,7 @@ const Home = ()=>{
     </section>
     <section className="events">
         <h1>The Latest at Lomdei</h1>
-        <div className="events-inner">
-            <a href={newsletter1} target="_blank" rel="noreferrer">
-                <div className="events-inner-background">
-                    <img className="events-img" src={Newsletter_1} alt="Lomdei's Newsletter 1"/>
-                    <p className="events-txt">Lomdei's Latest Newsletter</p>
-                </div>
-            </a>
-            <a href="https://www.linkedin.com/posts/jeremy-hartstein-5b56878_jewisheducation-blendedlearning-personalizedlearning-activity-6881287034078543872-zlf8" target="_blank" rel="noreferrer">
-                <div className="events-inner-background">
-                    <img className="events-img" src="https://www.torahumesorah.org/images/db/6218-School-Culture-Ad2-01-01-01.png" alt="Torah Umesorah Conference Flier"/>
-                    <p className="events-txt">Lomdei at the Torah Umesorah Conference</p>
-                </div>
-            </a>
-            <a href={CoT_Flier} target="_blank" rel="noreferrer">
-                <div className="events-inner-background">
-                    <img className="events-img" src={CoT_Flier} alt="Community of Teachers Flier"/>
-                    <p className="events-txt">Lomdei Community of Teachers</p>
-                </div>
-            </a>
-        </div>
+        <NewsItems />
     </section>
     <Footer />
   </div>

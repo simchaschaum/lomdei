@@ -3,6 +3,9 @@ import Home from './pages/Home';
 import AboutLomdei from './pages/lomdei/about-lomdei';
 import Contact from "./pages/lomdei/Contact";
 import Gallery from "./pages/lomdei/Gallery";
+import Grants from "./pages/lomdei/Grants";
+import News from "./pages/lomdei/News";
+import Team from "./pages/lomdei/Team";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -17,9 +20,9 @@ function App() {
     <Route path="/lomdei/about-lomdei" element={<AboutLomdei/>}/>
     <Route path="/lomdei/contact" element={<Contact/>}/>
     <Route path="/lomdei/gallery" element={<Gallery/>}/>
-    <Route path="/lomdei/grants" element={<Home/>}/>
-    <Route path="/lomdei/news" element={<Home/>}/>
-    <Route path="/lomdei/team" element={<Home/>}/>
+    <Route path="/lomdei/grants" element={<Grants/>}/>
+    <Route path="/lomdei/news" element={<News/>}/>
+    <Route path="/lomdei/team" element={<Team/>}/>
     <Route path="/lomdei/schools" element={<Home/>}/>
     <Route path="/bpl/advantage" element={<Home/>}/>
     <Route path="/bpl/benefits" element={<Home/>}/>

@@ -3,6 +3,7 @@ import Footer from "../../footer/Footer";
 import Dropdown from "react-bootstrap/Dropdown";
 import {pictures} from "./pictures";
 import { useEffect, useState } from "react";
+import {LazyLoad} from 'react-lazyload';
 
 const Gallery = () => {
     const [titles, setTitles] = useState([]);
@@ -35,10 +36,6 @@ const Gallery = () => {
         setLongTitles([...ltArr]);
     },[pictures])
 
-    useEffect(()=>{
-        console.log(pics)
-    },[pics])
-
     const openLightbox = (outer,inner)=>{
         setCurrentPic([outer,inner]);
         setLightboxdisplay(true);
@@ -51,7 +48,6 @@ const Gallery = () => {
         let outer = currentPic[0];
         let inner = currentPic[1];
         if(inner === pics[outer].pics.length-1 && fb === "for"){ // if forward and at end of inner array 
-            console.log("1!")
             if(outer === pics.length-1){   // if also at the end of outer array
                 outer = 0;
             } else {
@@ -59,7 +55,6 @@ const Gallery = () => {
             }
                 inner = 0;
         } else if(inner === 0 && fb === "back") {  // if going backwards and at the beginning of inner array 
-            console.log("2!")
             if(outer === 0){  // if also at the beginning of outer array
                 outer = pics.length-1;
             } else {
@@ -67,11 +62,8 @@ const Gallery = () => {
             }
             inner = pics[outer].pics.length-1;
         } else{
-            console.log("3!")
-
             inner = inner + x;
         }
-        console.log(`outer = ${outer}, inner = ${inner}`)
         setCurrentPic([outer,inner]);
     }
     const handleFullSize = ()=>{
@@ -114,11 +106,13 @@ const Gallery = () => {
                            <span></span>
                            <h4>{item}</h4>
                            <div className="gallery-event">
-                            {pics[index].pics.map((pic,idx)=>pics[index].video ? <div className="video-div">
-                                <iframe key={`pic-${idx}`} className="gallery-video" src={pic.url} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" title={`Lomdei Video ${index}-${idx}`}/>
+                            {pics[index].pics.map((pic,idx)=>pics[index].video ? <div key={`vid-${idx}`} className="video-div">
+                                <iframe className="gallery-video" src={pic.url} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" title={`Lomdei Video ${index}-${idx}`}/>
                                 <p>{pic.alt}</p>
                                 </div>
-                            : <img key={`pic-${idx}`} src={`../../pictures${pic.url}`} alt={pic.alt} onClick={()=>openLightbox(index,idx)}/>)}
+                            : <div  key={`pic-${idx}`}>
+                                <img className="gallery-img" src={`../../pictures${pic.url}`} alt={pic.alt} onClick={()=>openLightbox(index,idx)}/>
+                            </div>)}
                            </div>
                         </div>   
                     )}  

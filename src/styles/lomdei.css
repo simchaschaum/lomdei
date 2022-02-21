@@ -138,11 +138,11 @@ section#team{
     display: flex;
     flex-wrap: wrap;
   }
-  .gallery-container img{
+  .gallery-img{
     height: 200px;
     object-fit: contain;
-    margin: 2%;
     cursor: pointer;
+    margin: 0 10px 10px 0;
   }
   .gallery-container img.lazy{
     width: 250px;
@@ -164,8 +164,9 @@ section#team{
     flex-wrap: wrap;
     width: 100%;
   }
-  .gallery-event h4{
+  .gallery-container h4{
     font-size: 2em;
+    margin: 2.5% 0 5% 0;
   }
   
   iframe.gallery-video{
@@ -244,7 +245,7 @@ section#team{
   }
   #close-modal-wide{
     position: fixed;
-    top: 0;
+    top: 70px;
     right: 50px;
   }
   .cursor{

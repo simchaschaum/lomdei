@@ -68,9 +68,6 @@ p{
   color: var(--clr-white)
 }
 /* Dropdown  */
-.dropdown-dark{
-  background-color: var(--clr-dark) !important;
-}
 .mini{
   padding: 5px 10px;
   font-size: 16px;
