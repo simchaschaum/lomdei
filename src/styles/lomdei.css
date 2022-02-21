@@ -30,6 +30,14 @@ section#team{
   .teamCard p{
     margin-bottom: 30px;
   }
+  .teamCard{
+    border: none;
+    background-color: transparent;
+  }
+  .teamCard:focus{
+    outline: none;
+    box-shadow: 0 0 5px var(--clr-dark);
+  }
   .fullBio{
     position: absolute;
     width: 68px;
