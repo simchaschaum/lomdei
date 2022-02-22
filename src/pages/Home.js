@@ -32,13 +32,9 @@ const Home = ()=>{
             <a className="carousel-link" href="./bpl/advantage">
                 <h2>
                     <strong>
-                        The Lomdei Advantage
+                        The Lomdei Advantage: Shared Values
                     </strong>
                 </h2>
-                <h6>
-                    Lomdei creates and services our schools in the most impactful way by appreciating
-                    and recognizing their specific religious needs and values. Click to learn more.
-                </h6>
             </a>
         </Carousel.Item>
         <Carousel.Item>
@@ -46,12 +42,9 @@ const Home = ()=>{
             <a className="carousel-link" href="./bpl/pd-program">
                 <h2>
                     <strong>
-                        Comprehensive Support
+                     Comprehensive Support: Coaching, Resources, and Community
                     </strong>
                 </h2>
-                <h6>
-                    Lomdei supports the growth of each Lomdei Platform user and Lomdei BPL program participant with coaching, resources, and supportive communities. Click to learn more.                            
-                </h6>
             </a>
         </Carousel.Item>
         <Carousel.Item>
@@ -59,12 +52,9 @@ const Home = ()=>{
             <a className="carousel-link" href="./platform/about-platform">
                 <h2>
                     <strong>
-                        The Lomdei Learning Platform
+                        The Lomdei Learning Platform: Simple, Powerful Learning Software
                     </strong>
                 </h2>
-                <h6>
-                    Lomdei's Learning Platform is a simple, yet powerful tool, equipped with our virtual library of skill building content in all areas of Limudei Kodesh.  Click to learn more. 
-                </h6>
             </a>
         </Carousel.Item>
         <Carousel.Item>
@@ -72,30 +62,13 @@ const Home = ()=>{
             <a className="carousel-link" href="./bpl/advantage">
                 <h2>
                     <strong>
-                       The Lomdei BPL Program
+                        The Lomdei BPL Program: <br/>
+                        Cutting-Edge Professional Development for Rebbeim and Moros
                     </strong>
                 </h2>
-                <h6>
-                   Lomdei’s BPL Program works to enhance Jewish Education by training teachers in the planning, implementation and sustaining of practices in Blended & Personalized Learning.
-                   Click to learn more.                            
-                </h6>
             </a>
         </Carousel.Item>
         </Carousel>
-    </section>
-    <section id="intro-mission">
-        <h1>
-            Transforming Jewish Schools and Mosdos Torah Through Our Tailored Blended and Personalized Learning Program and Learning Platform        </h1>
-        <h3>
-            Lomdei is leading the way, providing custom training, coaching, and support for our BPL Program, along with our premier, skill-based Torah learning platform - to empower each rebbe and morah in creating the most dynamic, personalized and educationally sound experience for students.
-        </h3>
-        <h2><strong>להגדיל תורה ולהאדירה</strong></h2> 
-        <a className="link-dark" href="./lomdei/schools">
-            <p>See a list of schools who have joined the movement and are part of this growing community</p>
-        </a>
-        <a className="link-dark" href="./lomdei/contact">
-            <p>Contact us to join, learn more, or to be in touch with schools who benefit from Lomdei's services</p>
-        </a>
     </section>
     <section>
         <div id="intro-mission-inner">
@@ -104,12 +77,15 @@ const Home = ()=>{
                     <div>
                         <h2><strong>Lomdei Learning Platform</strong></h2>
                         <h4>
-                            The Premier Torah Learning Platform in Jewish Day Schools equipped with a library of skill building Limudei Kodesh content.
+                            The Premier Torah Learning Software used in Jewish Day Schools
                             <br/>
                             <a className="link link-dark" rel="noreferrer" target="_blank" href={TuM}>Endorsed by Torah Umesorah</a>
                         </h4>
                     </div>
-                    <a href="./platform/about-platform" className="link-btn">Learn More</a>
+                    <div className="btn-box">
+                            <button href="./pages/platform/about-platform.html" className="link-btn">Learn More</button>
+                            <button href="" className="link-btn">Watch the Video</button>
+                    </div>
                 </div>
                 <div className="white-fade-cover"></div>
                 <img src={lomdei_pic_1} alt="Closeup of Lomdei Learning Platform screen"/>
@@ -119,15 +95,51 @@ const Home = ()=>{
                     <div>
                         <h2><strong>Lomdei BPL Program</strong></h2>
                         <h4>
-                            The leading professional development service in Blended and Personalized Learning geared for a  Torah environment and the Limudei Kodesh class.
+                            The leading professional development service in Blended and Personalized Learning (BPL)
                         </h4>
                     </div>
-                    <a href="./bpl/advantage" className="link-btn">Learn More</a>
+                    <div className="btn-box">
+                        <button href="./pages/BPL/about-BPL.html" className="link-btn">What is BPL?</button>
+                        <button href="./pages/BPL/about-BPL.html" className="link-btn">Why Lomdei BPL?</button>
+                        <button href="" className="link-btn">Watch the Video</button>
+                    </div>
                 </div>
                 <div className="white-fade-cover"></div>
                 <img src={group_work} alt="Students learning collaboratively in a small group"/>
             </div>
         </div>
+    </section>
+    <section id="intro-mission">
+        <h1>
+            Lomdei is leading the way, empowering each rebbe and morah to create the most <strong>dynamic</strong>, <strong>personalized</strong>, and <strong>educationally sound</strong> 
+            experience for their students! 
+        </h1>
+        <ul>
+            <li>
+                <h2>
+                    <strong>The Lomdei BPL Program:</strong>
+                </h2>
+                <h3>
+                    <em>Our cutting-edge professional development in Blended and Personalized Learning (BPL), providing custom training, coaching, and support
+                        for each rebbe and morah.</em>
+                </h3>
+            </li>
+            <li>
+                <h2>
+                    <strong>The Lomdei Learning Platform:</strong>
+                </h2>
+                <h3>
+                    <em>Our premier Torah-learning software, used by hundreds of students throughout the world</em>
+                </h3>
+            </li>
+        </ul>
+        <h2><strong>להגדיל תורה ולהאדירה</strong></h2> 
+        <a className="link-dark" href="./lomdei/schools">
+            <p>See a list of schools who have joined the movement and are part of this growing community</p>
+        </a>
+        <a className="link-dark" href="./lomdei/contact">
+            <p>Contact us to join, learn more, or to be in touch with schools who benefit from Lomdei's services</p>
+        </a>
     </section>
     <section id="intro-features" className="bkg-dark">
         <div id="unique" className="features-outer">

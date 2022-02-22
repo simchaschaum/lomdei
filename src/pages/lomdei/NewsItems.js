@@ -5,26 +5,29 @@ import { useEffect, useState } from "react";
 const NewsItems = () => {
 
     const [contentArr, setContentArr] = useState([]);
+    const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
-      const docRef = doc(db,"website-info","lomdei-news");
-      const snapshot = await getDoc(docRef);
-      if(snapshot.exists){
-        setContentArr([...snapshot.data().content]);
-      } else {
-        console.log("Sorry! No data available.");
-      }
+        setErrorMsg("Data loading...");
+        const docRef = doc(db, "website-info", "lomdei-news");
+        const snapshot = await getDoc(docRef);
+        console.log(snapshot);
+        if (!snapshot.exists) {
+            setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+        } else {
+            setContentArr([...snapshot.data().content]);
+        }
     }
 
-    useEffect(()=>{getData()},[]);
+    useEffect(() => { getData() }, []);
 
-    return(
+    return (
         <div className="events-inner">
-            {contentArr.length === 0 ? "Content Loading... " : 
-                contentArr.map((item,index)=>
+            {contentArr.length === 0 ? "Content Loading... " :
+                contentArr.map((item, index) =>
                     <a key={`newsevent-${index}`} href={item.newsItem.link} target="_blank" rel="noreferrer">
                         <div className="events-inner-background">
-                        <img className="events-img" src={item.newsItem.image} alt={item.newsItem.imageAltText} />
+                            <img className="events-img" src={item.newsItem.image} alt={item.newsItem.imageAltText} />
                             <p className="events-txt">{item.newsItem.title}</p>
                         </div>
                     </a>

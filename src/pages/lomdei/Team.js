@@ -20,7 +20,7 @@ const Team = () => {
       setContentArr([...snapshot.data().content]);
     } else {
       console.log("Sorry! No data available.");
-      setErrorMsg("Sorry! Data Failed to Load.")
+      setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
     }
   }
 
