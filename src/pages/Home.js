@@ -2,6 +2,8 @@ import TopNavbar from "../topNavbar/TopNavbar";
 import Footer from "../footer/Footer";
 import TuM from "./pdfs/Torah_Umesorah_Letter.pdf";
 import NewsItems from "./lomdei/NewsItems";
+import Modal from 'react-bootstrap/Modal';
+import { useState } from "react";
 
 // images:
 import BPL_in_action from "../pics/homepage/BPL in action.jpg";
@@ -18,6 +20,18 @@ import IMG_20211223 from "../pics/homepage/IMG-20211223-WA0001.jpg";
 import Carousel from 'react-bootstrap/Carousel';
 
 const Home = ()=>{
+    const [showVid, setShowVid] = useState(false);
+    const [modalIndex, setModalIndex] = useState(0);
+    const [videoUrls, setVideoUrls] = useState(["https://player.vimeo.com/video/646548530?h=3f5d4e6f27&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479", "https://www.youtube-nocookie.com/embed/H0s2SCu1bEo?rel=0"])
+
+    const handleShow = (n) => {
+        setShowVid(true);
+        setModalIndex(n)
+      }
+      const handleClose = () => {
+        setShowVid(false)
+      }
+
     return(
         <>
     
@@ -84,7 +98,7 @@ const Home = ()=>{
                     </div>
                     <div className="btn-box">
                             <button href="./pages/platform/about-platform.html" className="link-btn">Learn More</button>
-                            <button href="" className="link-btn">Watch the Video</button>
+                            <button onClick={()=>handleShow(0)} className="link-btn">Watch the Video</button>
                     </div>
                 </div>
                 <div className="white-fade-cover"></div>
@@ -101,7 +115,7 @@ const Home = ()=>{
                     <div className="btn-box">
                         <button href="./pages/BPL/about-BPL.html" className="link-btn">What is BPL?</button>
                         <button href="./pages/BPL/about-BPL.html" className="link-btn">Why Lomdei BPL?</button>
-                        <button href="" className="link-btn">Watch the Video</button>
+                        <button onClick={()=>handleShow(1)} className="link-btn">Watch the Video</button>
                     </div>
                 </div>
                 <div className="white-fade-cover"></div>
@@ -109,6 +123,12 @@ const Home = ()=>{
             </div>
         </div>
     </section>
+    {/* Popup Modals  */}
+    <Modal show={showVid} onHide={handleClose}>
+            <Modal.Body>
+              <iframe src={videoUrls[modalIndex]} title="Lomdei Video"></iframe>
+            </Modal.Body>
+    </Modal>
     <section id="intro-mission">
         <h1>
             Lomdei is leading the way, empowering each rebbe and morah to create the most <strong>dynamic</strong>, <strong>personalized</strong>, and <strong>educationally sound</strong> 

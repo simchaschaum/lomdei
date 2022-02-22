@@ -11,7 +11,6 @@ const NewsItems = () => {
         setErrorMsg("Data loading...");
         const docRef = doc(db, "website-info", "lomdei-news");
         const snapshot = await getDoc(docRef);
-        console.log(snapshot);
         if (!snapshot.exists) {
             setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
         } else {
