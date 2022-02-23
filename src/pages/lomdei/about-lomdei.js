@@ -3,28 +3,29 @@ import Footer from "../../footer/Footer";
 import IMG_0595 from "../../pics/lomdei/IMG_0595.jpg";
 import HALBVisit from "../../pics/lomdei/HALBVisit12_7_21 (4).jpeg";
 import IMG_0617 from "../../pics/lomdei/IMG_0617.jpg";
+import { useState, useEffect } from "react";
 import { db } from "../../firebase/firebase";
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import {doc, getDoc} from 'firebase/firestore';
 
 const AboutLomdei = () => {
 
-    const [contentArr, setContentArr] = useState([]);
+const [contentArr, setContentArr] = useState([]);
+const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
-    const getData = async () => {
-      const docRef = doc(db,"website-info","about-lomdei");
-      const snapshot = await getDoc(docRef);
-      if(snapshot.exists){
-        setContentArr([...snapshot.data().content]);
-        console.log(contentArr)
-      } else {
-        console.log("Sorry! No data available.");
-      }
-    }
+const getData = async () => {
+  setErrorMsg("Data loading...");
+  const docRef = doc(db, "website-info", "about-lomdei");
+  const snapshot = await getDoc(docRef);
+  if (!snapshot.exists) {
+      setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+  } else {
+      setContentArr([...snapshot.data().content]);
+  }
+}
 
-    useEffect(()=>{getData()},[]);
+useEffect(()=>getData(),[])
 
-    return(
+return(
         <div>
         <div className="pageContainer">
         <TopNavbar page={"about-lomdei"}/>

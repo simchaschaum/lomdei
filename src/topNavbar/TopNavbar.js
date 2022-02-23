@@ -32,7 +32,7 @@ const TopNavbar = ({page})=>{
                         <NavDropdown.Item className="dropdown-dark" href="/lomdei/news">Lomdei News</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/lomdei/gallery">Gallery</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/lomdei/grants">Title Dollars</NavDropdown.Item>
-                        <NavDropdown.Item className="dropdown-dark" href="/lomdei/news">Schools Using Lomdei Services</NavDropdown.Item>
+                        <NavDropdown.Item className="dropdown-dark" href="/lomdei/schools">Schools Using Lomdei Services</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/lomdei/team">Our Team</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/lomdei/contact">Contact Us</NavDropdown.Item>
                 </NavDropdown>

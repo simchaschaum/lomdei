@@ -1,26 +1,27 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
-import { db } from "../../firebase/firebase";
-import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "../../firebase/firebase";
+import { doc, getDoc } from 'firebase/firestore';
 
 const Contact = () => {
 
     const [contentArr, setContentArr] = useState([]);
+    const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
-      const docRef = doc(db,"website-info","contact-us-intro");
-      const snapshot = await getDoc(docRef);
-      if(snapshot.exists){
+    setErrorMsg("Data loading...");
+    const docRef = doc(db, "website-info", "contact-us-intro");
+    const snapshot = await getDoc(docRef);
+    if (!snapshot.exists) {
+        setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+    } else {
         setContentArr([...snapshot.data().content]);
-        console.log(contentArr)
-      } else {
-        console.log("Sorry! No data available.");
-      }
+    }
     }
 
-    useEffect(()=>{getData()},[]);
-    useEffect(()=>console.log(contentArr),[contentArr])
+    useEffect(()=>getData(),[])
+
     return(
         <div>
             <div className="pageContainer">

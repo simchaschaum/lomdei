@@ -3,7 +3,7 @@ import Footer from "../../footer/Footer";
 import Dropdown from "react-bootstrap/Dropdown";
 import {pictures} from "./pictures";
 import { useEffect, useState } from "react";
-import {LazyLoad} from 'react-lazyload';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Gallery = () => {
     const [titles, setTitles] = useState([]);
@@ -111,7 +111,12 @@ const Gallery = () => {
                                 <p>{pic.alt}</p>
                                 </div>
                             : <div  key={`pic-${idx}`}>
-                                <img className="gallery-img" src={`../../pictures${pic.url}`} alt={pic.alt} onClick={()=>openLightbox(index,idx)}/>
+                                <LazyLoadImage
+                                    className="gallery-img" 
+                                    src={`../../pictures${pic.url}`} 
+                                    alt={pic.alt} 
+                                    onClick={()=>openLightbox(index,idx)}
+                                />
                             </div>)}
                            </div>
                         </div>   
