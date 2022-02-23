@@ -45,8 +45,8 @@ const TopNavbar = ({page})=>{
                         <NavDropdown.Item className="dropdown-dark" href="/platform/video-tutorials">Video Tutorials</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Lomdei BPL Program">
-                        <NavDropdown.Item className="dropdown-dark" href="/bpl/advantage">Lomdei's BPL Advantage</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/bpl/bpl-program">Lomdei's PD Program</NavDropdown.Item>
+                        <NavDropdown.Item className="dropdown-dark" href="/bpl/advantage">Lomdei's BPL Advantage</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/bpl/benefits">Benefits of BPL</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="/bpl/examples-resources">Examples and Resources for BPL</NavDropdown.Item>
                         <NavDropdown.Item className="dropdown-dark" href="https://sites.google.com/view/thebplclassroom/home">Lomdei Learning Lab</NavDropdown.Item>
