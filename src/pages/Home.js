@@ -4,6 +4,7 @@ import TuM from "./pdfs/Torah_Umesorah_Letter.pdf";
 import NewsItems from "./lomdei/NewsItems";
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 // images:
 import BPL_in_action from "../pics/homepage/BPL in action.jpg";
@@ -20,6 +21,7 @@ import IMG_20211223 from "../pics/homepage/IMG-20211223-WA0001.jpg";
 import Carousel from 'react-bootstrap/Carousel';
 
 const Home = ()=>{
+    const navigate = useNavigate();
     const [showVid, setShowVid] = useState(false);
     const [modalIndex, setModalIndex] = useState(0);
     const [videoUrls, setVideoUrls] = useState(["https://player.vimeo.com/video/646548530?h=3f5d4e6f27&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479", "https://www.youtube-nocookie.com/embed/H0s2SCu1bEo?rel=0"])
@@ -97,7 +99,7 @@ const Home = ()=>{
                         </h4>
                     </div>
                     <div className="btn-box">
-                            <button href="./pages/platform/about-platform.html" className="link-btn">Learn More</button>
+                            <Link to="/platform/about-platform" className="link-btn">Learn More</Link>
                             <button onClick={()=>handleShow(0)} className="link-btn">Watch the Video</button>
                     </div>
                 </div>
@@ -113,8 +115,8 @@ const Home = ()=>{
                         </h4>
                     </div>
                     <div className="btn-box">
-                        <button href="./pages/BPL/about-BPL.html" className="link-btn">What is BPL?</button>
-                        <button href="./pages/BPL/about-BPL.html" className="link-btn">Why Lomdei BPL?</button>
+                        <Link to="/bpl/benefits" className="link-btn">What is BPL?</Link>
+                        <Link to="/bpl/advantage" className="link-btn">Why Lomdei BPL?</Link>
                         <button onClick={()=>handleShow(1)} className="link-btn">Watch the Video</button>
                     </div>
                 </div>
