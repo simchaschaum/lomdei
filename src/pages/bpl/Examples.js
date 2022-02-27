@@ -8,22 +8,27 @@ import { db } from "../../firebase/firebase";
 const Examples = () => {
     const [showMod, setShowMod] = useState(false);
     const [modalIndex, setModalIndex] = useState(0);
-    const [examples, setExamples] = useState([])
+    const [examples, setExamples] = useState([]);
+    const [resources, setResources] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
         setErrorMsg("Data loading...");
         const docRef = doc(db, "website-info", "bpl-examples");
         const snapshot = await getDoc(docRef);
-        if (!snapshot.exists) {
+        const docResRef = doc(db, "website-info", "bpl-resources");
+        const resSnapshot = await getDoc(docResRef);
+
+        if (!snapshot.exists || !resSnapshot.exists) {
             setErrorMsg("Sorry! No data available.")
         } else {
             setExamples([...snapshot.data().content]);
+            setResources([...resSnapshot.data().content]);
         }
         }
     
         useEffect(()=>getData(),[]);
-        useEffect(()=>console.log(examples),[examples])
+        useEffect(()=>console.log(resources),[resources])
 
     const handleShow = (n) => {
         setModalIndex(n);
@@ -78,26 +83,13 @@ const Examples = () => {
                 </div>
                 <div className="text-pic-side">
                     <div className="tps-txt">
-                        <p>
-                            <strong><a className="link link-dark" href="https://catlintucker.com/" target="_blank">Dr. Catlin R. Tucker's Website (catlintucker.com)</a></strong>
+                        {resources.length > 0 && resources.map((item,index)=>
+                        <p key={`res-${index}`}>
+                            <strong><a className="link link-dark" href={item.resource.link} target="_blank" rel="noreferrer">{item.resource.title}</a></strong>
                             <br/>
-                                <em>Dr. Tucker is a noted expert on Blended and Personalized Learning.  Her site contains resources for BPL, including her blog with articles.</em>
+                            <em>{item.resource.text}</em>
                         </p>
-                        <p>
-                            <strong><a className="link link-dark" href="https://blog.betterlesson.com/" target="_blank">BetterLesson (blog.betterlesson.com)</a></strong>
-                            <br/>
-                                <em>BetterLesson's site has a large amount of resources for teaching.  Their blog contains articles on Blended and Personalized Learning and many other subjects in the field of education.</em>
-                        </p>
-                        <p>
-                            <strong><a className="link link-dark" href="https://www.iste.org/" target="_blank">The International Society for Technology in Education (iste.org)</a></strong>
-                            <br/>
-                                <em>ISTE supports the use of technology to enhance teaching and learning and has many resources on Blended and Personalized Learning.</em>
-                        </p>
-                        <p>
-                            <strong><a className="link link-dark" href="https://www.edutopia.org/topic/blended-learning" target="_blank">Edutopia (edutopia.org/topic/blended-learning)</a></strong>
-                            <br/>
-                                <em>Edutopia is a popular website with many resources on many topictures in education, including Blended Learning.</em>
-                        </p>
+                        )}
                     </div>
                     <div className="tps-pic">
                         <img src="../../pictures/lomdei_pic_6.JPG" alt="children Learning Torah"/>
