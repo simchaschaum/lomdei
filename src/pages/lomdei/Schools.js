@@ -25,7 +25,7 @@ const Schools = () => {
     }
 
     useEffect(()=>getData(),[]);
-    // useEffect(()=>console.log(platformArr),[platformArr])
+    useEffect(()=>console.log(platformArr),[platformArr])
     // useEffect(()=>console.log(bplArr),[bplArr])
 
     return (<div>

@@ -269,6 +269,7 @@ a.button{
     margin: 2.5% 5%;
     width: 250px;
     color: var(--clr-white);
+    background-color: transparent;
     text-decoration: none;
     cursor: pointer;
     display: flex;
@@ -276,6 +277,7 @@ a.button{
     justify-content: center;
     align-items: center;
     text-align: center;
+    border: none;
 }
 .lrnMoreLnk:hover{
     color: var(--clr-white);    
@@ -290,6 +292,17 @@ a.button{
 }
 .lrnMoreLnk>h5{
     margin: 2.5%;
+}
+.btn-close{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  bottom: 10px;
+  cursor: pointer;
+}
+.btn-close::before{
+  content: "X";
+  font-size: 1.5em;
 }
 
 

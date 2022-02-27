@@ -93,7 +93,7 @@ const Home = ()=>{
                     <div>
                         <h2><strong>Lomdei Learning Platform</strong></h2>
                         <h4>
-                            The Premier Torah Learning Software used in Jewish Day Schools
+                            The premier Torah-learning software platform in Jewish Day Schools, equipped with a library of skill-building Limudei Kodesh content.
                             <br/>
                             <a className="link link-dark" rel="noreferrer" target="_blank" href={TuM}>Endorsed by Torah Umesorah</a>
                         </h4>
@@ -111,7 +111,7 @@ const Home = ()=>{
                     <div>
                         <h2><strong>Lomdei BPL Program</strong></h2>
                         <h4>
-                            The leading professional development service in Blended and Personalized Learning (BPL)
+                            The leading professional development service in Blended and Personalized Learning geared for a Torah environment and the Limudei Kodesh class.
                         </h4>
                     </div>
                     <div className="btn-box">

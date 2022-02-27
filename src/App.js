@@ -7,6 +7,9 @@ import Grants from "./pages/lomdei/Grants";
 import News from "./pages/lomdei/News";
 import Team from "./pages/lomdei/Team";
 import Schools from "./pages/lomdei/Schools";
+import Advantage from "./pages/bpl/Advantage";
+import Benefits from "./pages/bpl/Benefits";
+import Examples from "./pages/bpl/Examples";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -25,9 +28,9 @@ function App() {
           <Route path="/lomdei/news" element={<News/>}/>
           <Route path="/lomdei/team" element={<Team/>}/>
           <Route path="/lomdei/schools" element={<Schools/>}/>
-          <Route path="/bpl/advantage" element={<Home/>}/>
-          <Route path="/bpl/benefits" element={<Home/>}/>
-          <Route path="/bpl/examples-resources" element={<Home/>}/>
+          <Route path="/bpl/advantage" element={<Advantage/>}/>
+          <Route path="/bpl/benefits" element={<Benefits/>}/>
+          <Route path="/bpl/examples-resources" element={<Examples/>}/>
           <Route path="/bpl/pd-program" element={<Home/>}/>
           <Route path="/platform/about-platform" element={<Home/>}/>
           <Route path="/platform/benefits" element={<Home/>}/>
