@@ -44,34 +44,34 @@ const Team = () => {
       </section>
       <section id="team">
 
-        <div>
+        <div className="teamContainer">
           {contentArr.length > 0 && contentArr.filter(item=>item.info.row===1).map((item, index) =>
-              <button className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
                 <h5 className="fullBio">Full Bio</h5>
-              </button>)
+              </div>)
           }
         </div>
-        <div>
+        <div className="teamContainer">
           {contentArr.length > 0 && contentArr.filter(item=>item.info.row===2).map((item, index) =>
-              <button className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
                 <h5 className="fullBio">Full Bio</h5>
-              </button>)
+              </div>)
           }
         </div>
-        <div>
+        <div className="teamContainer">
           {contentArr.length > 0 && contentArr.filter(item=>item.info.row===3).map((item, index) =>
-              <button className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
                 <h5 className="fullBio">Full Bio</h5>
-              </button>)
+              </div>)
           }
         </div>
 
