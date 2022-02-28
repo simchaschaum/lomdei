@@ -1,24 +1,32 @@
 import { db } from "../../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const NewsItems = () => {
 
+    const isMounted = useRef(false);
+    
     const [contentArr, setContentArr] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
-        setErrorMsg("Data loading...");
-        const docRef = doc(db, "website-info", "lomdei-news");
-        const snapshot = await getDoc(docRef);
-        if (!snapshot.exists) {
-            setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
-        } else {
-            setContentArr([...snapshot.data().content]);
+        if(isMounted.current){
+            setErrorMsg("Data loading...");
+            const docRef = doc(db, "website-info", "lomdei-news");
+            const snapshot = await getDoc(docRef);
+            if (!snapshot.exists) {
+                setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+            } else {
+                setContentArr([...snapshot.data().content]);
+            }
         }
     }
 
-    useEffect(() => { getData() }, []);
+    useEffect(() => { 
+        isMounted.current = true;
+        getData();
+        return ()=>(isMounted.current = false)
+    }, []);
 
     return (
         <div className="events-inner">

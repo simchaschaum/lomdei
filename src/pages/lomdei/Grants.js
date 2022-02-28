@@ -2,24 +2,31 @@ import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
 import { db } from "../../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 
 const Grants = () => {
 
+  const isMounted = useRef(false);
   const [contentArr, setContentArr] = useState([]);
 
   const getData = async () => {
-    const docRef = doc(db, "website-info", "grants-intro-text");
-    const snapshot = await getDoc(docRef);
-    if (snapshot.exists) {
-      setContentArr([...snapshot.data().content]);
-    } else {
-      console.log("Sorry! No data available.");
+    if(isMounted.current){
+      const docRef = doc(db, "website-info", "grants-intro-text");
+      const snapshot = await getDoc(docRef);
+      if (snapshot.exists) {
+        setContentArr([...snapshot.data().content]);
+      } else {
+        console.log("Sorry! No data available.");
+      }
     }
   }
 
-  useEffect(() => { getData() }, []);
+  useEffect(() => { 
+    isMounted.current = true;
+    getData();
+    return ()=>(isMounted.current = false)
+  }, []);
 
   return (<div>
     <div className="pageContainer">

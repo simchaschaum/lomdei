@@ -3,27 +3,34 @@ import Footer from "../../footer/Footer";
 import IMG_0595 from "../../pics/lomdei/IMG_0595.jpg";
 import HALBVisit from "../../pics/lomdei/HALBVisit12_7_21 (4).jpeg";
 import IMG_0617 from "../../pics/lomdei/IMG_0617.jpg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { db } from "../../firebase/firebase";
 import {doc, getDoc} from 'firebase/firestore';
 
 const AboutLomdei = () => {
 
+const isMounted = useRef(false);
 const [contentArr, setContentArr] = useState([]);
 const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
 const getData = async () => {
-  setErrorMsg("Data loading...");
-  const docRef = doc(db, "website-info", "about-lomdei");
-  const snapshot = await getDoc(docRef);
-  if (!snapshot.exists) {
-      setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
-  } else {
-      setContentArr([...snapshot.data().content]);
+  if(isMounted.current){
+    setErrorMsg("Data loading...");
+    const docRef = doc(db, "website-info", "about-lomdei");
+    const snapshot = await getDoc(docRef);
+    if (!snapshot.exists) {
+        setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+    } else {
+        setContentArr([...snapshot.data().content]);
+    }
   }
 }
 
-useEffect(()=>getData(),[])
+useEffect(()=>{
+  isMounted.current = true;
+  getData();
+  return ()=>(isMounted.current = false)
+},[])
 
 return(
         <div>

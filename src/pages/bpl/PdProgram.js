@@ -1,6 +1,6 @@
 import Footer from "../../footer/Footer";
 import TopNavbar from "../../topNavbar/TopNavbar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
@@ -9,19 +9,27 @@ const PdProgram = () => {
     const [textArr, setTextArr] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data loading...");
 
+    const isMounted = useRef(false);
+
     const getData = async () => {
-        setErrorMsg("Data loading...");
-        const docRef = doc(db, "website-info", "bpl-program");
-        const snapshot = await getDoc(docRef);
-        if (!snapshot.exists) {
-            setErrorMsg("Sorry! No data available.")
-        } else {
-            setTextArr([...snapshot.data().content]);
+        if(isMounted.current){
+            setErrorMsg("Data loading...");
+            const docRef = doc(db, "website-info", "bpl-program");
+            const snapshot = await getDoc(docRef);
+            if (!snapshot.exists) {
+                setErrorMsg("Sorry! No data available.")
+            } else {
+                setTextArr([...snapshot.data().content]);
+            }
         }
-        }
+    }
     
-        useEffect(()=>getData(),[]);
-        useEffect(()=>console.log(textArr),[textArr])
+        useEffect(()=>{
+            isMounted.current = true;
+            getData();
+            return () => (isMounted.current = false)
+        },[]); 
+        // useEffect(()=>console.log(textArr),[textArr])
     return (<div>
         <div className="pageContainer">
           <TopNavbar />

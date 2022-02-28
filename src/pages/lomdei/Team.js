@@ -3,28 +3,35 @@ import Footer from "../../footer/Footer";
 import Modal from 'react-bootstrap/Modal';
 import { db } from "../../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Team = () => {
 
+  const isMounted = useRef(false);
   const [contentArr, setContentArr] = useState([]);
   const [showBio, setShowBio] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
   const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
   const getData = async () => {
-    setErrorMsg("Data loading...")
-    const docRef = doc(db, "website-info", "lomdei-team");
-    const snapshot = await getDoc(docRef);
-    if (snapshot.exists) {
-      setContentArr([...snapshot.data().content]);
-    } else {
-      console.log("Sorry! No data available.");
-      setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+    if(isMounted.current){
+      setErrorMsg("Data loading...")
+      const docRef = doc(db, "website-info", "lomdei-team");
+      const snapshot = await getDoc(docRef);
+      if (snapshot.exists) {
+        setContentArr([...snapshot.data().content]);
+      } else {
+        console.log("Sorry! No data available.");
+        setErrorMsg("Sorry! Data Failed to Load.  Please check your internet connection.")
+      }
     }
   }
 
-  useEffect(() => { getData() }, []);
+  useEffect(() => { 
+      isMounted.current = true;
+      getData();
+      return ()=>(isMounted.current = false)
+    }, []);
   useEffect(() => console.log(contentArr), [contentArr]);
 
   const handleShow = (index) => {

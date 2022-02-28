@@ -5,7 +5,7 @@
     padding: 50px 20% 50px 10%;
     /* min-height: 100vh; */
     /* Add background picture! */
-    /* background: url(../pics/IMG_0609.jpg) no-repeat center center fixed; */
+    background: url('../../public/pictures/IMG_0609.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

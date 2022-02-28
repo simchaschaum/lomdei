@@ -11,6 +11,7 @@ import Advantage from "./pages/bpl/Advantage";
 import Benefits from "./pages/bpl/Benefits";
 import Examples from "./pages/bpl/Examples";
 import PdProgram from "./pages/bpl/PdProgram";
+import AboutPlatform from "./pages/platform/AboutPlatform";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -33,7 +34,7 @@ function App() {
           <Route path="/bpl/benefits" element={<Benefits/>}/>
           <Route path="/bpl/examples-resources" element={<Examples/>}/>
           <Route path="/bpl/pd-program" element={<PdProgram/>}/>
-          <Route path="/platform/about-platform" element={<Home/>}/>
+          <Route path="/platform/about-platform" element={<AboutPlatform />}/>
           <Route path="/platform/benefits" element={<Home/>}/>
           <Route path="/platform/features" element={<Home/>}/>
           <Route path="/platform/kosher-devices" element={<Home/>}/>

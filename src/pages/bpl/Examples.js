@@ -1,11 +1,13 @@
 import Footer from "../../footer/Footer";
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Modal from 'react-bootstrap/Modal';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
 const Examples = () => {
+    
+    const isMounted = useRef(false);
     const [showMod, setShowMod] = useState(false);
     const [modalIndex, setModalIndex] = useState(0);
     const [examples, setExamples] = useState([]);
@@ -13,21 +15,29 @@ const Examples = () => {
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
-        setErrorMsg("Data loading...");
-        const docRef = doc(db, "website-info", "bpl-examples");
-        const snapshot = await getDoc(docRef);
-        const docResRef = doc(db, "website-info", "bpl-resources");
-        const resSnapshot = await getDoc(docResRef);
-
-        if (!snapshot.exists || !resSnapshot.exists) {
-            setErrorMsg("Sorry! No data available.")
-        } else {
-            setExamples([...snapshot.data().content]);
-            setResources([...resSnapshot.data().content]);
-        }
-        }
+        if(isMounted.current){
+            setErrorMsg("Data loading...");
+            const docRef = doc(db, "website-info", "bpl-examples");
+            const snapshot = await getDoc(docRef);
+            const docResRef = doc(db, "website-info", "bpl-resources");
+            const resSnapshot = await getDoc(docResRef);
     
-        useEffect(()=>getData(),[]);
+            if (!snapshot.exists || !resSnapshot.exists) {
+                setErrorMsg("Sorry! No data available.")
+            } else {
+                setExamples([...snapshot.data().content]);
+                setResources([...resSnapshot.data().content]);
+            }
+        }
+    }
+    
+        useEffect(()=>{
+            isMounted.current = true;
+            getData();
+            return ()=>{
+                isMounted.current = false
+            }
+        },[]);
         // useEffect(()=>console.log(resources),[resources])
 
     const handleShow = (n) => {

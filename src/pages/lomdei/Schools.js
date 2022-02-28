@@ -1,30 +1,37 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { db } from "../../firebase/firebase";
 import { doc, getDoc } from 'firebase/firestore';
 
 const Schools = () => {
 
+    const isMounted = useRef(false);
     const [platformArr, setPlatformArr] = useState([]);
     const [bplArr, setBplArr] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
     const getData = async () => {
-    setErrorMsg("Data loading...");
-    const docRefPlatforms = doc(db, "website-info", "platform-schools");
-    const docRefBPL = doc(db, "website-info", "bpl-schools");
-    const pSnapshot = await getDoc(docRefPlatforms);
-    const bSnapshot = await getDoc(docRefBPL);
-    if (!pSnapshot.exists || !bSnapshot.exists) {
-        setErrorMsg("Sorry! No data available.")
-    } else {
-        setPlatformArr([...pSnapshot.data().content]);
-        setBplArr([...bSnapshot.data().content]);
-    }
+        if(isMounted.current){
+            setErrorMsg("Data loading...");
+            const docRefPlatforms = doc(db, "website-info", "platform-schools");
+            const docRefBPL = doc(db, "website-info", "bpl-schools");
+            const pSnapshot = await getDoc(docRefPlatforms);
+            const bSnapshot = await getDoc(docRefBPL);
+            if (!pSnapshot.exists || !bSnapshot.exists) {
+                setErrorMsg("Sorry! No data available.")
+            } else {
+                setPlatformArr([...pSnapshot.data().content]);
+                setBplArr([...bSnapshot.data().content]);
+            }
+        }
     }
 
-    useEffect(()=>getData(),[]);
+    useEffect(()=>{
+        isMounted.current = true;
+        getData();
+        return ()=>(isMounted.current = false);
+    },[]);
     useEffect(()=>console.log(platformArr),[platformArr])
     // useEffect(()=>console.log(bplArr),[bplArr])
 
