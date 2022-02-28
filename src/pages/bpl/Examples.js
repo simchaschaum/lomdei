@@ -28,7 +28,7 @@ const Examples = () => {
         }
     
         useEffect(()=>getData(),[]);
-        useEffect(()=>console.log(resources),[resources])
+        // useEffect(()=>console.log(resources),[resources])
 
     const handleShow = (n) => {
         setModalIndex(n);

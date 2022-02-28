@@ -10,6 +10,7 @@ import Schools from "./pages/lomdei/Schools";
 import Advantage from "./pages/bpl/Advantage";
 import Benefits from "./pages/bpl/Benefits";
 import Examples from "./pages/bpl/Examples";
+import PdProgram from "./pages/bpl/PdProgram";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -31,7 +32,7 @@ function App() {
           <Route path="/bpl/advantage" element={<Advantage/>}/>
           <Route path="/bpl/benefits" element={<Benefits/>}/>
           <Route path="/bpl/examples-resources" element={<Examples/>}/>
-          <Route path="/bpl/pd-program" element={<Home/>}/>
+          <Route path="/bpl/pd-program" element={<PdProgram/>}/>
           <Route path="/platform/about-platform" element={<Home/>}/>
           <Route path="/platform/benefits" element={<Home/>}/>
           <Route path="/platform/features" element={<Home/>}/>
