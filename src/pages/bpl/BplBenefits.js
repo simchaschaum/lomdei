@@ -1,7 +1,7 @@
 import Footer from "../../footer/Footer";
 import TopNavbar from "../../topNavbar/TopNavbar";
 
-const Benefits = () => {
+const BplBenefits = () => {
 
     return (<div>
         <div className="pageContainer">
@@ -130,4 +130,4 @@ const Benefits = () => {
     </div>)
 }
 
-export default Benefits;
+export default BplBenefits;

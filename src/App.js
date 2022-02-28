@@ -8,10 +8,11 @@ import News from "./pages/lomdei/News";
 import Team from "./pages/lomdei/Team";
 import Schools from "./pages/lomdei/Schools";
 import Advantage from "./pages/bpl/Advantage";
-import Benefits from "./pages/bpl/Benefits";
+import BplBenefits from "./pages/bpl/BplBenefits";
 import Examples from "./pages/bpl/Examples";
 import PdProgram from "./pages/bpl/PdProgram";
 import AboutPlatform from "./pages/platform/AboutPlatform";
+import PlatformBenefits from "./pages/platform/PlatformBenefits";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -31,11 +32,11 @@ function App() {
           <Route path="/lomdei/team" element={<Team/>}/>
           <Route path="/lomdei/schools" element={<Schools/>}/>
           <Route path="/bpl/advantage" element={<Advantage/>}/>
-          <Route path="/bpl/benefits" element={<Benefits/>}/>
+          <Route path="/bpl/benefits" element={<BplBenefits/>}/>
           <Route path="/bpl/examples-resources" element={<Examples/>}/>
           <Route path="/bpl/pd-program" element={<PdProgram/>}/>
           <Route path="/platform/about-platform" element={<AboutPlatform />}/>
-          <Route path="/platform/benefits" element={<Home/>}/>
+          <Route path="/platform/benefits" element={<PlatformBenefits/>}/>
           <Route path="/platform/features" element={<Home/>}/>
           <Route path="/platform/kosher-devices" element={<Home/>}/>
           <Route path="/platform/services" element={<Home/>}/>
