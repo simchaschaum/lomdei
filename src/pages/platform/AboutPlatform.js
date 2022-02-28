@@ -3,6 +3,7 @@ import TopNavbar from "../../topNavbar/TopNavbar";
 import { useEffect, useState, useRef } from "react";
 import { db } from "../../firebase/firebase";
 import { doc, getDoc } from 'firebase/firestore';
+import { Link } from "react-browser-router";
 
 const AboutPlatform = () => {
 
@@ -29,18 +30,22 @@ const AboutPlatform = () => {
         getData();
         return ()=>(isMounted.current = false);
     },[]);
-    useEffect(()=>console.log(counters),[counters])
+    // useEffect(()=>console.log(counters),[counters])
 
     useEffect(() => {
         const countersTop = countersRef.current.getBoundingClientRect().top;
         const countersBottom = countersRef.current.getBoundingClientRect().bottom;
         if (countersTop > 0 && countersBottom < (window.innerHeight || document.documentElement.clientHeight)) {
             count();
+
         } else {
             window.addEventListener("scroll", handleScroll);
-            return () => (window.removeEventListener("scroll", handleScroll));
+            return () => {
+                window.removeEventListener("scroll", handleScroll)
+            };
         }
-    }, [])
+    });
+
 
     const handleScroll = () => {
         const countersTop = countersRef.current.getBoundingClientRect().top;
@@ -51,24 +56,26 @@ const AboutPlatform = () => {
     }
 
     const count = () => {
-        const counters = document.querySelectorAll('.counter');
-        const speed = 50;
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const count = parseInt(counter.innerText);
-                const increment = Math.trunc(target / speed);
-                if (count < target) {
-                    counter.innerText = count + increment;
-                    setTimeout(() => {
-                        updateCount()
-                    }, 25);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        })
+        if(isMounted.current){
+            const counters = document.querySelectorAll('.counter');
+            const speed = 50;
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const count = parseInt(counter.innerText);
+                    const increment = Math.trunc(target / speed);
+                    if (count < target) {
+                        counter.innerText = count + increment;
+                        setTimeout(() => {
+                            updateCount()
+                        }, 25);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            })
+        }
     }
 
     return (<div>
@@ -93,34 +100,35 @@ const AboutPlatform = () => {
 
             <section id="counters-section" ref={countersRef}>
                 <h2>The Lomdei Learning Platform is Currently Used By:</h2>
+                {counters.length>0 && 
                 <div id="counters">
                     <div>
                         <div className="counters-inner">
-                            {counters.length>0 && <h3 id="schoolsNum" className="counter" data-target={counters.length > 0 ? counters[0].info.schools : 0}>0</h3>}
+                            <h3 id="schoolsNum" className="counter" data-target={counters[0].info.schools}>0</h3>
                             <h5>Schools</h5>
                         </div>
                         <div className="counters-inner">
-                            <h3 id="studentsNum" className="counter" data-target="8540">0</h3>
+                            <h3 id="studentsNum" className="counter" data-target={counters[0].info.students}>0</h3>
                             <h5>Students</h5>
                         </div>
                     </div>
                     <div>
                         <div className="counters-inner">
-                            <h3 id="classesNum" className="counter" data-target="640">0</h3>
+                            <h3 id="classesNum" className="counter" data-target={counters[0].info.classes}>0</h3>
                             <h5>Classes</h5>
                         </div>
                         <div className="counters-inner">
-                            <h3 id="teachersNum" className="counter" data-target="300">0</h3>
+                            <h3 id="teachersNum" className="counter" data-target={counters[0].info.teachers}>0</h3>
                             <h5>Teachers</h5>
                         </div>
                     </div>
-                </div>
+                </div>}
             </section>
 
             <section id="promoVideos">
                 <span id="videoAnchor" className="anchor"></span>
-                <iframe className="video" src="https://www.youtube-nocookie.com/embed/H0s2SCu1bEo?rel=0" loading="lazy" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                <iframe className="video" src="https://www.youtube-nocookie.com/embed/gfV5DNG4yJk?rel=0" loading="lazy" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                {counters.length > 0 && <iframe className="video" src={`${counters[0].info.video1}?rel=0`} loading="lazy" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
+                {counters.length > 0 && <iframe className="video" src="https://www.youtube-nocookie.com/embed/gfV5DNG4yJk?rel=0" loading="lazy" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
             </section>
 
             <section className="bkg-dark">
@@ -128,22 +136,22 @@ const AboutPlatform = () => {
                     <h2>Learn More About Lomdei Learning Platform</h2>
                 </div>
                 <div className="lrnMoreLnks-container">
-                    <a className="lrnMoreLnk" href="./features.html">
+                    <Link className="lrnMoreLnk" to="/platform/features">
                         <img src="../../pictures/Platform/platform-pic (1).jpg" alt="Students Learn with the Lomdei Learning Platgform" />
                         <h5>Features of the Learning Platform</h5>
-                    </a>
-                    <a className="lrnMoreLnk" href="./benefits.html">
+                    </Link>
+                    <Link className="lrnMoreLnk" to="/platform/benefits">
                         <img src="../../pictures/Platform/platform-pic (2).jpeg" alt="Students Learn with the Lomdei Learning Platgform" />
                         <h5>The Benefits of the Learning Platform</h5>
-                    </a>
-                    <a className="lrnMoreLnk" href="./kosher-devices.html">
+                    </Link>
+                    <Link className="lrnMoreLnk" to="/platform/kosher-devices">
                         <img src="../../pictures/Platform/platform-pic (3).jpg" alt="Students Learn with the Lomdei Learning Platgform" />
                         <h5>Use of the Platform on Kosher Devices</h5>
-                    </a>
-                    <a className="lrnMoreLnk" href="./services.html">
+                    </Link>
+                    <Link className="lrnMoreLnk" to="/platform/services">
                         <img src="../../pictures/Platform/platform-pic (4).jpg" alt="Students Learn with the Lomdei Learning Platgform" />
                         <h5>Lomdei Platform Services</h5>
-                    </a>
+                    </Link>
                 </div>
             </section>
 
