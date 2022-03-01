@@ -1,6 +1,7 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
 import Dropdown from "react-bootstrap/Dropdown";
+import { DropdownButton } from "react-bootstrap";
 import {pictures} from "./pictures";
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -12,6 +13,7 @@ const Gallery = () => {
     const [currentPic, setCurrentPic] = useState([0,0]);
     const [lightboxDisplay, setLightboxdisplay] = useState(false);
     const [fullSize, setFullSize] = useState("");
+    const [showBottomDropdown, setShowBottomDropdown] = useState('lowDropdownBtn');
 
     useEffect(()=>{
         let [tArr, pArr,ltArr] = [[],[],[]]
@@ -35,6 +37,24 @@ const Gallery = () => {
         setPics([...pArr]);
         setLongTitles([...ltArr]);
     },[pictures])
+
+    useEffect(() => {
+        if(window.scrollY > 150){
+            setShowBottomDropdown("lowDropdownBtn show-low");
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+                window.removeEventListener("scroll", handleScroll)
+        };
+    });
+
+    const handleScroll = () => {
+        if(window.scrollY>150 && showBottomDropdown==="lowDropdownBtn"){
+            setShowBottomDropdown("lowDropdownBtn show-low");
+        } else if(window.scrollY <= 150 && showBottomDropdown==="lowDropdownBtn show-low") {
+            setShowBottomDropdown('lowDropdownBtn')
+        }
+    }
 
     const openLightbox = (outer,inner)=>{
         setCurrentPic([outer,inner]);
@@ -78,16 +98,13 @@ const Gallery = () => {
         <div>
              <div className="pageContainer">
                 <TopNavbar />
-                {/* <!-- Low Dropdown Button - only available on scroll --> */}
-                <div className="dropdown" id="lowDropdownBtn">
-                <a className="btn link-btn dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    All Events
-                </a>
-                <ul id="low-gallery-dropdown" className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                    <li><a href="#gallery-section" className="dropdown-item">Back to Top</a></li>
-                    {/* <!-- Dropdown items added dynamically --> */}
-                </ul>
-                </div>
+                <DropdownButton
+                    drop={'up'}
+                    title={'All Events'}
+                    className={showBottomDropdown}
+                >
+                    {longTitles.map((item,index)=><Dropdown.Item key={`dropup-${index}`} href={`#title-${item}`}>{item}</Dropdown.Item>)}
+                </DropdownButton>
 
                 <section className="header">
                     <h2>Lomdei Event Gallery</h2>
@@ -96,15 +113,15 @@ const Gallery = () => {
                         Click Here for All Lomdei Events
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                            {titles.map((item,idx)=><Dropdown.Item key={`k-${idx}`} href="#">{item}</Dropdown.Item>)}
+                            {longTitles.map((item,idx)=><Dropdown.Item key={`k-${idx}`} href={`#title-${item}`}>{item}</Dropdown.Item>)}
                         </Dropdown.Menu>
                     </Dropdown>
                 </section>
                 <section id="gallery-section" className="gallery-container">
                     {longTitles.map((item,index)=>
                         <div key={`key-${index}`}>
-                           <span></span>
                            <h4>{item}</h4>
+                           <span id={`title-${item}`}></span>
                            <div className="gallery-event">
                             {pics[index].pics.map((pic,idx)=>pics[index].video ? <div key={`vid-${idx}`} className="video-div">
                                 <iframe className="gallery-video" src={pic.url} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" title={`Lomdei Video ${index}-${idx}`}/>
