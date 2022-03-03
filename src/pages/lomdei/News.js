@@ -1,6 +1,7 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
-import NewsItems from "./NewsItems";
+import Events from "./events";
+import Newsletters  from "./Newsletters";
 
 const News = () => {
 
@@ -11,7 +12,10 @@ const News = () => {
                 <h2>Lomdei News</h2>
             </section>
             <section className="events">
-                <NewsItems />
+                <h2>Lomdei Events</h2>
+                <Events />
+                <h2>Lomdei Newsletters</h2>
+                <Newsletters />
             </section>
         </div>
         <Footer />

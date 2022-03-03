@@ -53,7 +53,7 @@
   }
   /* Homepage -  mission section*/
   #intro-mission{
-    width: 65%;
+    width: 75%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -74,6 +74,14 @@
   #intro-mission li{
     list-style-type: none
   }
+  #intro-mission>div{
+    display: flex;
+    justify-content: space-between;
+  }
+  #intro-mission .long-rec-btn{
+    width: 40%;
+    font-size: 1.25em;
+  }
   #intro-mission h3,
   #intro-mission h2{
     text-align: justify;
@@ -88,56 +96,89 @@
     flex: 1;
     position: relative;
   }
-  .white-fade-cover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-  }
+  .intro-mission-half:first-of-type .white-fade-cover{
+    background-color: rgba(102, 191, 255, 0.6);
+}
+.white-fade-cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.intro-mission-txt{
+  position: absolute;
+  top: 5%;
+  z-index: 10;
+  width: 100%;
+  height: 600px;
+  padding: 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+@media(max-width:1000px){
   .intro-mission-txt{
-    position: absolute;
-    top: 5%;
-    z-index: 10;
-    width: 100%;
-    height: 90%;
-    padding: 5%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    height: 700px;
   }
-  .intro-mission-txt>h2,
+}
+.intro-mission-txt>div:first-of-type{
+  position: relative;
+  border: 1px solid var(--clr-white);
+  /* background-color: var(--clr-ligh);
+  color: var(--clr-dark);*/
+  padding: 7.5%; 
+  height: 90%;
+}
+.intro-mission-half>img{
+  max-width: 100%;
+  height: 600px;
+  object-fit: cover ;
+}
+@media(max-width:1000px){
+  .intro-mission-half>img{
+    height: 700px;
+  }
+}
+.intro-mission-txt h2{
+  font-size: 2.75em;
+}
+.intro-mission-txt h4{
+  margin-top: 5%;
+}
+@media(max-width:800px){
   .intro-mission-half>img{
     max-width: 100%;
-    height: 100%;
-    object-fit: cover ;
   }
-  .intro-mission-txt>a{
-    text-decoration: none;
-  }
-  .intro-mission-txt>a:hover{
-    text-decoration: none;
-    color: white;
-  } 
-  .intro-mission-half .btn-box{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .intro-mission-half .btn-box>a,
-  .intro-mission-half .btn-box>button
-  {
-    padding: 1%;
-    border-radius: 5px;
-    box-shadow: 0 0 5px var(--clr-dark);
-    min-width: 40px;
-  }
-  /* Popup Videos */
+}
+.intro-mission-txt a{
+  text-decoration: none;
+}
+.intro-mission-txt a:hover{
+  text-decoration: none;
+  color: white;
+} 
+.intro-mission-half .btn-box{
+  position: absolute;
+  bottom: 2.5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.intro-mission-half .btn-box>button,
+.intro-mission-half .btn-box>a{
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--clr-dark);
+  min-width: 40px;
+}
+/* Popup Videos */
   .modal-body{
     display: flex;
     justify-content: center;
@@ -199,6 +240,44 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  .long-rec-btn{
+    width: 75%;
+    height: 75px;
+    min-width: 250px;
+    margin-bottom: 2.5%;
+    border: none;  
+    background-color: var(--clr-dark);
+    color: var(--clr-white);
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px var(--clr-dark);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .long-rec-btn:hover{
+    background-color: var(--clr-btnHov);
+    color: var(--clr-white);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .long-rec-btn p{
+    margin: 0
+  }
   
-  
-  
+  /* Events buttons at bottom of page */
+  .home-events{
+    width: 75%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-body>.events-inner{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }

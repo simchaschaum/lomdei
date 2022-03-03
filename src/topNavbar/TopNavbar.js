@@ -15,7 +15,9 @@ const TopNavbar = ({page})=>{
         }
     }
     useEffect(()=>{
-        window.addEventListener("scroll",handleScroll);
+        window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
     })
 
     return(

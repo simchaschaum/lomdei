@@ -111,7 +111,7 @@ a.button{
 .events-inner{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 90%;
 }
@@ -141,7 +141,9 @@ a.button{
     font-size: 1.25em;
     width: 90%;
     opacity: 0;
-    transition: 0.5s
+    transition: 0.5s;
+    text-align: center;
+    margin: 0 auto;
   }
   .events-inner>a:hover .events-img{
     opacity: 0.15;
