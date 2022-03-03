@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 // images:
-import BPL_in_action from "../pics/homepage/BPL in action.jpg";
 import IMG_0597 from "../pics/homepage/IMG_0597.jpg";
 import IMG_0606 from "../pics/homepage/IMG_0606.jpg";
 import IMG_0594 from"../pics/homepage/IMG_0594.jpg";
@@ -44,7 +43,7 @@ const Home = ()=>{
     <section id="intro-carousel">
     <Carousel interval={7500}>
         <Carousel.Item>
-            <img className="d-block w-100" src={BPL_in_action} alt="BPL in action in a Lomdei trained classroom" />
+            <img className="d-block w-100" src="../../pictures/homepage/miami1.jpg" alt="BPL in action in a Lomdei trained classroom" />
             <a className="carousel-link" href="./bpl/advantage">
                 <h2>
                     <strong>

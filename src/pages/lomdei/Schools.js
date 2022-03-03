@@ -42,7 +42,7 @@ const Schools = () => {
                 <h1>Schools Using Lomdei Services</h1>
             </section>
             <section id="schools">
-                <h3>Schools Using the Lomdei Learning Platform</h3>
+                <h3>Schools Implementing the Lomdei Learning Platform</h3>
                 <a className="link-dark" href="#BPL-anchor">Skip to Schools using Lomdei BPL</a>
                 <div className="schools-div">
                   {platformArr.map((item,index)=>

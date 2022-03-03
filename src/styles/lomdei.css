@@ -116,7 +116,7 @@ section#team{
   .lowDropdownBtn>button:hover{
     background-color: var(--clr-btnHov);
   }
-  .dropdown-toggle{
+  .lowDropdownBtn.dropdown-toggle{
     background-color: var(--clr-dark) !important;
     outline-color: var(--clr-light) !important;
   }
