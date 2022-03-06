@@ -6,6 +6,8 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const Contact = () => {
 
+    useEffect(()=>{document.title = "Lomdei - Contact Us"},[]);
+
     const [contentArr, setContentArr] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 

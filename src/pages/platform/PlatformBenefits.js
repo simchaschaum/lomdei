@@ -7,6 +7,8 @@ import { useEffect, useState, useRef } from "react";
 
 const PlatformBenefits = () => {
 
+    useEffect(()=>{document.title = "Lomdei Learning Platform - Benefits"},[]);
+    
     const [content, setContent] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");
 

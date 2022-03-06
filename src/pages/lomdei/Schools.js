@@ -6,6 +6,8 @@ import { doc, getDoc } from 'firebase/firestore';
 
 const Schools = () => {
 
+    useEffect(()=>{document.title = "Lomdei - Current Lomdei Schools"},[]);
+    
     const isMounted = useRef(false);
     const [platformArr, setPlatformArr] = useState([]);
     const [bplArr, setBplArr] = useState([]);

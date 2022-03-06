@@ -7,6 +7,8 @@ import { useEffect, useState, useRef } from "react";
 
 const Team = () => {
 
+  useEffect(()=>{document.title = "Lomdei - Our Team"},[]);
+  
   const isMounted = useRef(false);
   const [contentArr, setContentArr] = useState([]);
   const [showBio, setShowBio] = useState(false);

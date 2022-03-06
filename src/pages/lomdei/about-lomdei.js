@@ -9,6 +9,8 @@ import {doc, getDoc} from 'firebase/firestore';
 
 const AboutLomdei = () => {
 
+useEffect(()=>{document.title = "Lomdei - About Lomdei"},[]);
+
 const isMounted = useRef(false);
 const [contentArr, setContentArr] = useState([]);
 const [errorMsg, setErrorMsg] = useState("Data Loading...");

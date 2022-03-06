@@ -7,6 +7,8 @@ import { db } from "../../firebase/firebase";
 
 const Examples = () => {
     
+    useEffect(()=>{document.title = "Lomdei Learning Platform - Examples of BPL"},[]);
+    
     const isMounted = useRef(false);
     const [showMod, setShowMod] = useState(false);
     const [modalIndex, setModalIndex] = useState(0);

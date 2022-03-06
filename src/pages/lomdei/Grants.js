@@ -7,6 +7,8 @@ import { useEffect, useState, useRef } from "react";
 
 const Grants = () => {
 
+  useEffect(()=>{document.title = "Lomdei - Government Grants"},[]);
+
   const isMounted = useRef(false);
   const [contentArr, setContentArr] = useState([]);
 

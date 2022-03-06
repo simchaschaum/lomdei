@@ -15,6 +15,8 @@ const Gallery = () => {
     const [fullSize, setFullSize] = useState("");
     const [showBottomDropdown, setShowBottomDropdown] = useState('lowDropdownBtn');
 
+    useEffect(()=>{document.title = "Lomdei - Gallery"},[]);
+
     useEffect(()=>{
         let [tArr, pArr,ltArr] = [[],[],[]]
         pictures.forEach(item=>{

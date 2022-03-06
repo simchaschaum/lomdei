@@ -1,7 +1,10 @@
 import Footer from "../../footer/Footer";
 import TopNavbar from "../../topNavbar/TopNavbar";
+import {useEffect} from "react";
 
 const Advantage = () => {
+
+    useEffect(()=>{document.title = "Lomdei BPl - The Lomdei Advantage"},[]);
 
     return (<div>
         <div className="pageContainer">

@@ -2,9 +2,12 @@ import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
 import Events from "./events";
 import Newsletters  from "./Newsletters";
+import { useEffect } from "react";
 
 const News = () => {
 
+    useEffect(()=>{document.title = "Lomdei - News"},[]);
+    
     return(<div>
         <div className="pageContainer">
             <TopNavbar/>

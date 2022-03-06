@@ -7,6 +7,8 @@ import { Link } from "react-browser-router";
 
 const AboutPlatform = () => {
 
+    useEffect(()=>{document.title = "Lomdei Learning Platform - About"},[]);
+    
     const countersRef = useRef();
     const isMounted = useRef(false);
     const [errorMsg, setErrorMsg] = useState("Data Loading...");

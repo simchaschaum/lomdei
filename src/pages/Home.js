@@ -2,7 +2,7 @@ import TopNavbar from "../topNavbar/TopNavbar";
 import Footer from "../footer/Footer";
 import TuM from "./pdfs/Torah_Umesorah_Letter.pdf";
 import Modal from 'react-bootstrap/Modal';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 import Newsletters from "./lomdei/Newsletters";
@@ -22,6 +22,8 @@ import IMG_20211223 from "../pics/homepage/IMG-20211223-WA0001.jpg";
 
 
 const Home = () => {
+    useEffect(()=>{document.title = "Lomdei - Blended and Personalized Learning"},[]);
+    
     const [showVid, setShowVid] = useState(false);
     const [showEvents, setShowEvents] = useState(false);
     const [eventsHeaders, setEventsHeaders] = useState(["Events", "Newsletters"]);
