@@ -10,7 +10,8 @@ const Team = () => {
   const isMounted = useRef(false);
   const [contentArr, setContentArr] = useState([]);
   const [showBio, setShowBio] = useState(false);
-  const [modalIndex, setModalIndex] = useState(0);
+  const [modalBio, setModalBio] = useState("");
+  const [modalName, setModalName] = useState("");
   const [errorMsg, setErrorMsg] = useState("Data Loading...");
 
   const getData = async () => {
@@ -34,9 +35,10 @@ const Team = () => {
     }, []);
   useEffect(() => console.log(contentArr), [contentArr]);
 
-  const handleShow = (index) => {
+  const handleShow = (bio,name) => {
     setShowBio(true);
-    setModalIndex(index)
+    setModalBio(bio);
+    setModalName(name);
   }
   const handleClose = () => {
     setShowBio(false)
@@ -52,8 +54,8 @@ const Team = () => {
       <section id="team">
 
         <div className="teamContainer">
-          {contentArr.length > 0 && contentArr.filter(item=>item.info.row===1).map((item, index) =>
-              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+          {contentArr.length > 0 && contentArr.filter(item=>item.info.row==="1").map((item, index) =>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(item.info.bio, item.info.name)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
@@ -62,8 +64,8 @@ const Team = () => {
           }
         </div>
         <div className="teamContainer">
-          {contentArr.length > 0 && contentArr.filter(item=>item.info.row===2).map((item, index) =>
-              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+          {contentArr.length > 0 && contentArr.filter(item=>item.info.row==="2").map((item, index) =>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(item.info.bio, item.info.name)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
@@ -72,8 +74,8 @@ const Team = () => {
           }
         </div>
         <div className="teamContainer">
-          {contentArr.length > 0 && contentArr.filter(item=>item.info.row===3).map((item, index) =>
-              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(index)}>
+          {contentArr.length > 0 && contentArr.filter(item=>item.info.row==="3").map((item, index) =>
+              <div className="teamCard" key={`teamCard-${index}`} onClick={() => handleShow(item.info.bio, item.info.name)}>
                 <img src={`../../pictures/headshots/${item.info.name}.png`} alt={`${item.info.name} Headshot`} />
                 <h4>{item.info.name}</h4>
                 <p>{item.info.title}</p>
@@ -84,10 +86,10 @@ const Team = () => {
 
           <Modal show={showBio} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>{contentArr.length > 0 && contentArr[modalIndex].info.name}</Modal.Title>
+              <Modal.Title>{modalName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>{contentArr.length > 0 ? contentArr[modalIndex].info.bio : errorMsg}</p>
+              <p>{modalBio}</p>
             </Modal.Body>
           </Modal>
       </section>

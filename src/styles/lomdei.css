@@ -20,19 +20,24 @@ section#team{
     position: relative;
     margin: 5px;
     padding: 10px;
-    width: 325px;
+    width: 225px;
     transition: box-shadow 0.3s;
+    border: none;
+    background-color: transparent;
   }
   .teamCard:hover{
     cursor: pointer;
     box-shadow: 0 0 5px var(--clr-dark);
   }
-  .teamCard p{
-    margin-bottom: 30px;
+  .teamCard h4{
+    font-size: 1.25em;
+    font-weight: bold;
   }
-  .teamCard{
-    border: none;
-    background-color: transparent;
+  .teamCard h5{
+    font-size: 1.10em;
+  }
+  .teamCard p{
+    font-size: 1em;
   }
   .teamCard:focus{
     outline: none;
