@@ -6,7 +6,7 @@ import { db } from "../../firebase/firebase";
 
 const PdProgram = () => {
 
-    useEffect(()=>{document.title = "Lomdei Learning Platform - Our BPL PD Program"},[]);
+    useEffect(()=>{document.title = "Lomdei BPL - Our BPL PD Program"},[]);
     
     const [textArr, setTextArr] = useState([]);
     const [errorMsg, setErrorMsg] = useState("Data loading...");
