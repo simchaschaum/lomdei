@@ -26,7 +26,7 @@ const Newsletters = ()=>{
     }
     return(
         <div className="events-inner">
-                 {newslettersArr.length > 0 && 
+                 {newslettersArr.length > 0 ?
                         newslettersArr.map((item, index) =>
                             <a key={`newsletter-${index}`} href={item.newsItem.link} target="_blank" rel="noreferrer">
                                 <div className="events-inner-background">
@@ -34,7 +34,8 @@ const Newsletters = ()=>{
                                     <p className="events-txt">{item.newsItem.title}</p>
                                 </div>
                             </a>
-                        )
+                        ) :
+                        "Newsletters Loading... "
                     }
                 </div>
     )

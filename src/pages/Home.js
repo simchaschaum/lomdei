@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Carousel from 'react-bootstrap/Carousel';
 import Newsletters from "./lomdei/Newsletters";
-import Events from "./lomdei/events";
+import Events from "./lomdei/Events";
 
 // images:
 import IMG_0597 from "../pics/homepage/IMG_0597.jpg";

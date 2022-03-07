@@ -1,6 +1,6 @@
 import TopNavbar from "../../topNavbar/TopNavbar";
 import Footer from "../../footer/Footer";
-import Events from "./events";
+import Events from "./Events";
 import Newsletters  from "./Newsletters";
 import { useEffect } from "react";
 
