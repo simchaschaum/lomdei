@@ -10,9 +10,9 @@ const TopNavbar = ({ page }) => {
 
     const handleScroll = () => {
         if (window.scrollY > 75 && navClass === "") {
-            setNavClass("nav-shrink")
+            setNavClass("nav-shrink");
         } else if (window.scrollY <= 75 && navClass === "nav-shrink") {
-            setNavClass(null)
+            setNavClass("");
         }
     }
     useEffect(() => {
