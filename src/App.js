@@ -15,6 +15,8 @@ import AboutPlatform from "./pages/platform/AboutPlatform";
 import PlatformBenefits from "./pages/platform/PlatformBenefits";
 import PlatformFeatures from "./pages/platform/PlatformFeatures";
 import KosherDevices from "./pages/platform/KosherDevices";
+import PlatformServices from "./pages/platform/PlatformServices";
+import PlatformVideoTutorials from "./pages/platform/PlatformVideoTutorials";
 import './styles/bpl.css';
 import './styles/general.css';
 import './styles/home.css';
@@ -41,8 +43,8 @@ function App() {
           <Route path="/platform/benefits" element={<PlatformBenefits/>}/>
           <Route path="/platform/features" element={<PlatformFeatures/>}/>
           <Route path="/platform/kosher-devices" element={<KosherDevices/>}/>
-          <Route path="/platform/services" element={<Home/>}/>
-          <Route path="/platform/video-tutorials" element={<Home/>}/>
+          <Route path="/platform/services" element={<PlatformServices/>}/>
+          <Route path="/platform/video-tutorials" element={<PlatformVideoTutorials/>}/>
         </Routes>
   );
 }

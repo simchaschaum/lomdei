@@ -180,14 +180,18 @@ button.infoTitle{
   .showIt{
     display: none !important;
   }
-  #contentsDropup{
-    display: none;
+  .contentsDropup{
     position: fixed;
     z-index: 99;
     bottom: 2.5%;
     right: 2.5%;
     box-shadow: 0 0 5px var(--clr-dark);
     border-radius: .25rem;
+  }
+  @media(min-width:800px){
+    .contentsDropup{
+      display: none;
+    }
   }
   #dropupButton{
     background-color: var(--clr-dark);
